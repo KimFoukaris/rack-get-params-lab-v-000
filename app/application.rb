@@ -23,6 +23,7 @@ class Application
       search_term = req.params["q"]
       resp.write handle_search(search_term)
     elsif req.path.match(/add/)
+      binding.pry
       item = req.params["q"]
       if @@items.include?(item)
         @@cart << item
