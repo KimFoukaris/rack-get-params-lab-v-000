@@ -31,6 +31,7 @@ class Application
   def add_item(search_term)
     if @@items.include?(search_term)
       @@cart << search_term
+      binding.pry
       return "added #{search_term}"
     else
       return "We don't have that item"
