@@ -1,5 +1,3 @@
-require 'pry'
-
 class Application
 
   @@items = ["Apples","Carrots","Pears"]
@@ -25,14 +23,14 @@ class Application
       search_term = req.params["q"]
       resp.write handle_search(search_term)
     elsif req.path.match(/add/)
-      binding.pry
       item = req.params["q"]
-      if @@items.include?(item)
-        @@cart << item
-        resp.write "added #{item}"
-      else
-        return "We don't have that item"
-      end
+      resp.write "#{item}"
+      #if @@items.include?(item)
+      #  @@cart << item
+      #  resp.write "added #{item}"
+      #else
+      #  return "We don't have that item"
+      #end
     else
       resp.write "Path Not Found"
     end
